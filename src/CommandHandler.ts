@@ -99,6 +99,12 @@ export class CommandHandler extends Client {
       }
     });
   }
+  
+  listen(): void {
+    this.on("message", message => {
+      this.handle_command(message);
+    });
+  }
 
   handle_command(message: Message): boolean {
     var command = message.content.split(" ")[0].toLowerCase();
